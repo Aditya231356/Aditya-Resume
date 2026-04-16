@@ -445,9 +445,7 @@ a:focus-visible {
 
   html,
   body {
-    background:
-      radial-gradient(circle at top left, rgba(15, 92, 77, 0.12), transparent 30%),
-      linear-gradient(180deg, #efe5d8 0%, var(--bg) 38%, #f8f5ef 100%) !important;
+    background: var(--bg) !important;
   }
 
   body {
@@ -462,10 +460,18 @@ a:focus-visible {
   }
 
   .resume {
-    background: linear-gradient(180deg, rgba(255, 250, 242, 0.96) 0%, rgba(255, 253, 248, 0.99) 100%) !important;
+    background: var(--surface) !important;
     overflow: visible;
     box-shadow: none;
     border-radius: 24px;
+  }
+
+  .hero,
+  .contact-card,
+  .highlights,
+  .highlight-item,
+  .side-column {
+    background: var(--surface) !important;
   }
 
   .entry {
@@ -607,11 +613,6 @@ a:focus-visible {
     break-inside: avoid;
     page-break-inside: avoid;
   }
-
-  .side-column {
-    background: linear-gradient(180deg, rgba(247, 243, 236, 0.96), rgba(255, 251, 246, 0.88)) !important;
-  }
-
   .contact-list a {
     overflow-wrap: break-word;
     word-break: break-word;
