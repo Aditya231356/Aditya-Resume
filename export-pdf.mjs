@@ -93,7 +93,8 @@ async function main() {
     await page.pdf({
       path: outputFile,
       printBackground: true,
-      landscape: true,
+      format: "A4",
+      landscape: false,
       preferCSSPageSize: true
     });
 

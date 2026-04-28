@@ -433,8 +433,8 @@ a:focus-visible {
 }
 
 @page {
-  size: A4 landscape;
-  margin: 7mm;
+  size: A4 portrait;
+  margin: 8mm;
 }
 
 @media print {
@@ -445,12 +445,25 @@ a:focus-visible {
 
   html,
   body {
-    background: var(--bg) !important;
+    background: #ffffff !important;
   }
 
   body {
     margin: 0;
-    line-height: 1.35;
+    line-height: 1.32;
+  }
+
+  .page-shell,
+  .content-grid,
+  .main-column,
+  .side-column,
+  .resume-section,
+  .entry,
+  .highlight-item,
+  .contact-card {
+    background: #ffffff !important;
+    min-height: 0 !important;
+    height: auto !important;
   }
 
   .page-shell {
@@ -460,18 +473,21 @@ a:focus-visible {
   }
 
   .resume {
-    background: var(--surface) !important;
+    width: 100%;
+    max-width: 100%;
+    background: #ffffff !important;
     overflow: visible;
     box-shadow: none;
-    border-radius: 24px;
+    border-radius: 0;
   }
 
   .hero,
   .contact-card,
   .highlights,
   .highlight-item,
+  .main-column,
   .side-column {
-    background: var(--surface) !important;
+    background: #ffffff !important;
   }
 
   .entry {
@@ -486,6 +502,7 @@ a:focus-visible {
   }
 
   .hero {
+    grid-template-columns: minmax(0, 1.28fr) minmax(220px, 0.82fr);
     gap: 1rem;
     padding: 1.1rem 1.35rem 0.8rem;
   }
@@ -543,8 +560,9 @@ a:focus-visible {
   }
 
   .highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.45rem;
-    padding: 0.55rem 1.35rem 0.65rem;
+    padding: 0.5rem 1.2rem 0.55rem;
   }
 
   .highlight-item {
@@ -558,37 +576,48 @@ a:focus-visible {
 
   .main-column,
   .side-column {
-    padding: 0.8rem 1.35rem 0.95rem;
+    padding: 0.72rem 1.2rem 0.75rem;
+  }
+
+  .content-grid {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.82fr);
   }
 
   .resume-section + .resume-section {
-    margin-top: 0.8rem;
+    margin-top: 0.65rem;
   }
 
   .section-subtitle {
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.28rem;
   }
 
   .section-subtitle--spaced {
-    margin-top: 0.65rem;
-    padding-top: 0.45rem;
+    margin-top: 0.5rem;
+    padding-top: 0.35rem;
   }
 
   .entry {
-    padding-top: 0.4rem;
+    padding-top: 0.32rem;
   }
 
   .entry + .entry {
-    margin-top: 0.4rem;
+    margin-top: 0.3rem;
   }
 
   .entry__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.55rem;
     margin-bottom: 0.12rem;
   }
 
   .entry__header h3 {
     font-size: 0.88rem;
+  }
+
+  .entry__header p {
+    white-space: normal;
+    text-align: right;
   }
 
   .simple-list,
@@ -598,7 +627,7 @@ a:focus-visible {
 
   .simple-list li + li,
   .achievement-list li + li {
-    margin-top: 0.22rem;
+    margin-top: 0.16rem;
   }
 
   .chip-group {
@@ -613,20 +642,36 @@ a:focus-visible {
     break-inside: avoid;
     page-break-inside: avoid;
   }
+
+  .hero__content,
+  .contact-card,
+  .main-column,
+  .side-column,
+  .resume-section,
+  .highlight-item,
+  .entry,
+  .entry__header h3,
+  .entry__header p {
+    min-width: 0;
+  }
+
   .contact-list a {
+    white-space: normal;
     overflow-wrap: break-word;
     word-break: break-word;
   }
 
-  .contact-list li:nth-child(2) a,
-  .contact-list li:nth-child(3) a {
-    white-space: nowrap;
-    overflow-wrap: normal;
-    word-break: normal;
-  }
-
   .hero__photo {
     box-shadow: none;
+  }
+
+  .resume-section:last-child,
+  .entry:last-child,
+  .simple-list:last-child,
+  .achievement-list:last-child,
+  .contact-list:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .topbar,
